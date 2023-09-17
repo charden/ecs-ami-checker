@@ -1,0 +1,18 @@
+{
+  "FunctionName": "ecs-ami-checker",
+  "Handler": "index.handler",
+  "MemorySize": 128,
+  "Role": "{{ must_env `LAMBDA_ROLE` }}",
+  "Runtime": "provided.al2",
+  "Timeout": 3,
+  "Environment": {
+    "Variables": {
+      "WEBHOOK_URL": "{{ must_env `WEBHOOK_URL` }}",
+      "SLACK_USERNAME": "{{ must_env `SLACK_USERNAME` }}",
+      "SLACK_CHANNEL": "{{ must_env `SLACK_CHANNEL` }}",
+      "SLACK_ICON_EMOJI": "{{ must_env `SLACK_ICON_EMOJI` }}",
+      "AMI_PARAMETER_PATH": "{{ must_env `AMI_PARAMETER_PATH` }}",
+      "DEFAULT_AWS_REGION": "{{ must_env `DEFAULT_AWS_REGION` }}"
+    }
+  }
+}
